@@ -1,5 +1,7 @@
 package se.payerl.haws.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Result {
@@ -7,19 +9,30 @@ public class Result {
     private double latitude;
     private double longitude;
     private int elevation;
+    @JsonProperty("unit_system")
     private UnitSystem unitSystem;
+    @JsonProperty("location_name")
     private String locationName;
+    @JsonProperty("time_zone")
     private String timeZone;
     private List<String> components;
+    @JsonProperty("config_dir")
     private String configDir;
+    @JsonProperty("whitelist_external_dirs")
     private List<String> whitelistExternalDirs;
+    @JsonProperty("allowlist_external_dirs")
     private List<String> allowlistExternalDirs;
+    @JsonProperty("allowlist_external_urls")
     private List<String> allowlistExternalUrls;
     private String version;
+    @JsonProperty("config_source")
     private String configSource;
+    @JsonProperty("safe_mode")
     private boolean safeMode;
     private String state;
+    @JsonProperty("external_url")
     private String externalUrl;
+    @JsonProperty("internal_url")
     private String internalUrl;
 
     public Context getContext() {
