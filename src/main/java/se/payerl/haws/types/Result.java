@@ -13,30 +13,30 @@ public class Result {
     private double longitude;
     private int elevation;
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonProperty("unit_system")
+//    @JsonProperty("unit_system")
     private UnitSystem unitSystem;
-    @JsonProperty("location_name")
+//    @JsonProperty("location_name")
     private String locationName;
-    @JsonProperty("time_zone")
+//    @JsonProperty("time_zone")
     private String timeZone;
     private List<String> components;
-    @JsonProperty("config_dir")
+//    @JsonProperty("config_dir")
     private String configDir;
-    @JsonProperty("whitelist_external_dirs")
+//    @JsonProperty("whitelist_external_dirs")
     private List<String> whitelistExternalDirs;
-    @JsonProperty("allowlist_external_dirs")
+//    @JsonProperty("allowlist_external_dirs")
     private List<String> allowlistExternalDirs;
-    @JsonProperty("allowlist_external_urls")
+//    @JsonProperty("allowlist_external_urls")
     private List<String> allowlistExternalUrls;
     private String version;
-    @JsonProperty("config_source")
+//    @JsonProperty("config_source")
     private String configSource;
-    @JsonProperty("safe_mode")
+//    @JsonProperty("safe_mode")
     private boolean safeMode;
     private String state;
-    @JsonProperty("external_url")
+//    @JsonProperty("external_url")
     private String externalUrl;
-    @JsonProperty("internal_url")
+//    @JsonProperty("internal_url")
     private String internalUrl;
 
     public Context getContext() {

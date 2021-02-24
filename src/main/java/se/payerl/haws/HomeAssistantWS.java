@@ -2,8 +2,11 @@ package se.payerl.haws;
 
 import java.net.URI;
 
+import com.fasterxml.jackson.core.JsonFactoryBuilder;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.google.gson.Gson;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
@@ -49,6 +52,7 @@ public abstract class HomeAssistantWS extends WebSocketClient {
             case ServerTypes.RESULT:
                 try {
                     ObjectMapper om = new ObjectMapper();
+                    om.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
                     onResult(om.readValue(message, ResultMessage.class));
                 } catch(JsonProcessingException ex) {
                     System.err.println(ex.getMessage());
