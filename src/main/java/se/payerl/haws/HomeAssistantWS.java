@@ -8,7 +8,8 @@ import com.google.gson.Gson;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import se.payerl.haws.types.Client;
-import se.payerl.haws.types.Server;
+import se.payerl.haws.types.Server.*;
+import se.payerl.haws.types.ServerTypes;
 import se.payerl.haws.types.SocketMessage;
 
 public abstract class HomeAssistantWS extends WebSocketClient {
@@ -36,29 +37,29 @@ public abstract class HomeAssistantWS extends WebSocketClient {
 
         SocketMessage messageObj = new Gson().fromJson(message, SocketMessage.class);
         switch(messageObj.getType()) {
-            case Server.AUTH_REQUIRED:
-                onAuthRequired(new Gson().fromJson(message, Server.InitMessage.class));
+            case ServerTypes.AUTH_REQUIRED:
+                onAuthRequired(new Gson().fromJson(message, InitMessage.class));
                 break;
-            case Server.AUTH_INVALID:
-                onAuthInvalid(new Gson().fromJson(message, Server.AuthInvalidMessage.class));
+            case ServerTypes.AUTH_INVALID:
+                onAuthInvalid(new Gson().fromJson(message, AuthInvalidMessage.class));
                 break;
-            case Server.AUTH_OK:
+            case ServerTypes.AUTH_OK:
                 onAuthOk();
                 break;
-            case Server.RESULT:
+            case ServerTypes.RESULT:
                 try {
                     ObjectMapper om = new ObjectMapper();
-                    onResult(om.readValue(message, Server.ResultMessage.class));
+                    onResult(om.readValue(message, ResultMessage.class));
                 } catch(JsonProcessingException ex) {
                     System.err.println(ex.getMessage());
-                    onResult(new Gson().fromJson(message, Server.ResultMessage.class));
+                    onResult(new Gson().fromJson(message, ResultMessage.class));
                 }
                 break;
-            case Server.EVENT:
-                onSubscriptionMessage(new Gson().fromJson(message, Server.SubscriptionMessage.class));
+            case ServerTypes.EVENT:
+                onSubscriptionMessage(new Gson().fromJson(message, SubscriptionMessage.class));
                 break;
-            case Server.PONG:
-                onPong(new Gson().fromJson(message, Server.ServerMessage.class));
+            case ServerTypes.PONG:
+                onPong(new Gson().fromJson(message, ServerMessage.class));
                 break;
         }
     }
@@ -74,19 +75,19 @@ public abstract class HomeAssistantWS extends WebSocketClient {
         ex.fillInStackTrace();
     }
 
-    public void onAuthRequired(Server.InitMessage message) {
+    public void onAuthRequired(InitMessage message) {
         send(new Gson().toJson(new Client.AuthMessage(token)));
     }
 
-    public abstract void onAuthInvalid(Server.AuthInvalidMessage message);
+    public abstract void onAuthInvalid(AuthInvalidMessage message);
 
     public abstract void onAuthOk();
 
-    public abstract void onResult(Server.ResultMessage resultMessage);
+    public abstract void onResult(ResultMessage resultMessage);
 
-    public abstract void onSubscriptionMessage(Server.SubscriptionMessage message);
+    public abstract void onSubscriptionMessage(SubscriptionMessage message);
 
-    public void onPong(Server.ServerMessage message) {
+    public void onPong(ServerMessage message) {
 
     }
 
