@@ -46,15 +46,16 @@ public class Result {
                   @JsonProperty String locationName,
                   @JsonProperty String timeZone,
                   @JsonProperty List<String> components,
-                  String configDir,
-                  List<String> whitelistExternalDirs,
-                  List<String> allowlistExternalDirs,
-                  List<String> allowlistExternalUrls,
-                  String version, String configSource,
-                  boolean safeMode,
-                  String state,
-                  String externalUrl,
-                  String internalUrl) {
+                  @JsonProperty("config_dir") String configDir,
+                  @JsonProperty("whitelist_external_dirs") List<String> whitelistExternalDirs,
+                  @JsonProperty("allowlist_external_dirs") List<String> allowlistExternalDirs,
+                  @JsonProperty("allowlist_external_urls") List<String> allowlistExternalUrls,
+                  @JsonProperty String version,
+                  @JsonProperty("config_source") String configSource,
+                  @JsonProperty("safe_mode") boolean safeMode,
+                  @JsonProperty String state,
+                  @JsonProperty("external_url") String externalUrl,
+                  @JsonProperty("internal_url") String internalUrl) {
         this.context = context;
         this.latitude = latitude;
         this.longitude = longitude;
