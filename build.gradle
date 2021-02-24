@@ -16,6 +16,10 @@ compileJava {
     targetCompatibility = '1.8'
 }
 
+jar {
+    from sourceSets.main.allSource
+}
+
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
@@ -24,6 +28,5 @@ repositories {
 
 dependencies {
     implementation group: 'org.java-websocket', name: 'Java-WebSocket', version: '1.5.1'
-//    api 'com.google.code.gson:gson:2.8.6'
     implementation group: 'com.fasterxml.jackson.core', name:'jackson-databind', version:'2.12.1'
 }
