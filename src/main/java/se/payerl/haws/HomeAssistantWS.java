@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
-import org.omg.Messaging.SyncScopeHelper;
 import se.payerl.haws.types.Client;
 import se.payerl.haws.types.Server;
 import se.payerl.haws.types.SocketMessage;

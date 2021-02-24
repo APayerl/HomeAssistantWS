@@ -1,5 +1,6 @@
 package se.payerl.haws.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.google.gson.annotations.SerializedName;
 
 public abstract class Server {
@@ -55,6 +56,7 @@ public abstract class Server {
         private boolean success;
         private Result result;
 
+        @JsonCreator
         public ResultMessage(int id,
                 boolean success,
                 Result result) {
