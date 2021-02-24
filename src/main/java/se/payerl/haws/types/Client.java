@@ -17,7 +17,6 @@ public abstract class Client {
     public static final String PING = "ping";
 
     public static class AuthMessage extends SocketMessage {
-        @SerializedName("access_token")
         private String accessToken;
 
         public AuthMessage(String token) {
@@ -42,7 +41,6 @@ public abstract class Client {
         }
     }
     public static class SubscribeMessage extends ClientMessage {
-        @SerializedName("event_type")
         private String eventType;
 
         public SubscribeMessage(int id) {
@@ -74,7 +72,6 @@ public abstract class Client {
     public static class CallServiceMessage extends ClientMessage {
         private String domain;
         private String service;
-        @SerializedName("service_data")
         private ServiceData serviceData;
 
         public CallServiceMessage(int id, String domain, String service) {
@@ -121,7 +118,6 @@ public abstract class Client {
         }
     }
     public static class ClientEntityMessage extends ClientMessage {
-        @SerializedName("entity_id")
         private String entityId;
 
         public ClientEntityMessage(String type, int id, String entityId) {

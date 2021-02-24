@@ -1,6 +1,5 @@
 package se.payerl.haws.types;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public class Result {
     private double latitude;
     private double longitude;
     private int elevation;
-    @JsonIgnoreProperties(ignoreUnknown = true)
+//    @JsonIgnoreProperties(ignoreUnknown = true)
     private UnitSystem unitSystem;
     private String locationName;
     private String timeZone;

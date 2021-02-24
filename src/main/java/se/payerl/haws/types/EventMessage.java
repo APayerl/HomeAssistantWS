@@ -1,13 +1,9 @@
 package se.payerl.haws.types;
 
-import com.google.gson.annotations.SerializedName;
-
 public class EventMessage {
-    @SerializedName("event_type")
     private String eventType;
     private EventData data;
     private String origin;
-    @SerializedName("time_fired")
     private String timeFired;
     private Context context;
 
