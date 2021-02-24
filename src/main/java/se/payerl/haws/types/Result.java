@@ -1,9 +1,5 @@
 package se.payerl.haws.types;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 public class Result {
@@ -11,70 +7,20 @@ public class Result {
     private double latitude;
     private double longitude;
     private int elevation;
-    @SerializedName("unit_system")
     private UnitSystem unitSystem;
-    @SerializedName("location_name")
     private String locationName;
-    @SerializedName("time_zone")
     private String timeZone;
     private List<String> components;
-    @SerializedName("config_dir")
     private String configDir;
-    @SerializedName("whitelist_external_dirs")
     private List<String> whitelistExternalDirs;
-    @SerializedName("allowlist_external_dirs")
     private List<String> allowlistExternalDirs;
-    @SerializedName("allowlist_external_urls")
     private List<String> allowlistExternalUrls;
     private String version;
-    @SerializedName("config_source")
     private String configSource;
-    @SerializedName("safe_mode")
     private boolean safeMode;
     private String state;
-    @SerializedName("external_url")
     private String externalUrl;
-    @SerializedName("internal_url")
     private String internalUrl;
-
-    @JsonCreator
-    public Result(Context context,
-                  @JsonProperty("latitude") double latitude,
-                  @JsonProperty("longitude") double longitude,
-                  @JsonProperty("elevation") int elevation,
-                  @JsonProperty("unit_system") UnitSystem unitSystem,
-                  @JsonProperty("locationName") String locationName,
-                  @JsonProperty("timeZone") String timeZone,
-                  @JsonProperty("components") List<String> components,
-                  @JsonProperty("config_dir") String configDir,
-                  @JsonProperty("whitelist_external_dirs") List<String> whitelistExternalDirs,
-                  @JsonProperty("allowlist_external_dirs") List<String> allowlistExternalDirs,
-                  @JsonProperty("allowlist_external_urls") List<String> allowlistExternalUrls,
-                  @JsonProperty("version") String version,
-                  @JsonProperty("config_source") String configSource,
-                  @JsonProperty("safe_mode") boolean safeMode,
-                  @JsonProperty("state") String state,
-                  @JsonProperty("external_url") String externalUrl,
-                  @JsonProperty("internal_url") String internalUrl) {
-        this.context = context;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.elevation = elevation;
-        this.unitSystem = unitSystem;
-        this.locationName = locationName;
-        this.timeZone = timeZone;
-        this.components = components;
-        this.configDir = configDir;
-        this.whitelistExternalDirs = whitelistExternalDirs;
-        this.allowlistExternalDirs = allowlistExternalDirs;
-        this.allowlistExternalUrls = allowlistExternalUrls;
-        this.version = version;
-        this.configSource = configSource;
-        this.safeMode = safeMode;
-        this.state = state;
-        this.externalUrl = externalUrl;
-        this.internalUrl = internalUrl;
-    }
 
     public Context getContext() {
         return context;
