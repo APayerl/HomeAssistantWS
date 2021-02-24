@@ -1,5 +1,7 @@
 package se.payerl.haws.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -34,6 +36,44 @@ public class Result {
     private String externalUrl;
     @SerializedName("internal_url")
     private String internalUrl;
+
+    @JsonCreator
+    public Result(Context context,
+                  double latitude,
+                  double longitude,
+                  int elevation,
+                  @JsonProperty("unit_system") UnitSystem unitSystem,
+                  String locationName,
+                  String timeZone,
+                  List<String> components,
+                  String configDir,
+                  List<String> whitelistExternalDirs,
+                  List<String> allowlistExternalDirs,
+                  List<String> allowlistExternalUrls,
+                  String version, String configSource,
+                  boolean safeMode,
+                  String state,
+                  String externalUrl,
+                  String internalUrl) {
+        this.context = context;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.elevation = elevation;
+        this.unitSystem = unitSystem;
+        this.locationName = locationName;
+        this.timeZone = timeZone;
+        this.components = components;
+        this.configDir = configDir;
+        this.whitelistExternalDirs = whitelistExternalDirs;
+        this.allowlistExternalDirs = allowlistExternalDirs;
+        this.allowlistExternalUrls = allowlistExternalUrls;
+        this.version = version;
+        this.configSource = configSource;
+        this.safeMode = safeMode;
+        this.state = state;
+        this.externalUrl = externalUrl;
+        this.internalUrl = internalUrl;
+    }
 
     public Context getContext() {
         return context;
