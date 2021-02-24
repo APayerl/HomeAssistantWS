@@ -53,7 +53,7 @@ public abstract class Server {
             return message;
         }
     }
-    public static class ResultMessage extends ServerMessage {
+    public class ResultMessage extends ServerMessage {
         private boolean success;
         private Result result;
 
