@@ -2,9 +2,12 @@ package se.payerl.haws;
 
 import java.net.URI;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
+import org.omg.Messaging.SyncScopeHelper;
 import se.payerl.haws.types.Client;
 import se.payerl.haws.types.Server;
 import se.payerl.haws.types.SocketMessage;
@@ -44,7 +47,13 @@ public abstract class HomeAssistantWS extends WebSocketClient {
                 onAuthOk();
                 break;
             case Server.RESULT:
-                onResult(new Gson().fromJson(message, Server.ResultMessage.class));
+                try {
+                    ObjectMapper om = new ObjectMapper();
+                    onResult(om.readValue(message, Server.ResultMessage.class));
+                } catch(JsonProcessingException ex) {
+                    System.err.println(ex.getMessage());
+                    onResult(new Gson().fromJson(message, Server.ResultMessage.class));
+                }
                 break;
             case Server.EVENT:
                 onSubscriptionMessage(new Gson().fromJson(message, Server.SubscriptionMessage.class));
