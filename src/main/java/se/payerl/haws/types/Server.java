@@ -11,7 +11,7 @@ public abstract class Server {
     public static final String EVENT = "event";
     public static final String PONG = "pong";
 
-    public class ServerMessage extends SocketMessage {
+    public static class ServerMessage extends SocketMessage {
         private int id;
 
         public ServerMessage(String type, int id) {
@@ -27,7 +27,7 @@ public abstract class Server {
             return id;
         }
     }
-    public class InitMessage extends SocketMessage {
+    public static class InitMessage extends SocketMessage {
         @SerializedName("ha_version")
         private String haVersion;
 
@@ -52,7 +52,7 @@ public abstract class Server {
             return message;
         }
     }
-    public class ResultMessage extends ServerMessage {
+    public static class ResultMessage extends ServerMessage {
         private boolean success;
         private Result result;
 
@@ -72,7 +72,7 @@ public abstract class Server {
             return this.result;
         }
     }
-    public class SubscriptionMessage extends ServerMessage {
+    public static class SubscriptionMessage extends ServerMessage {
         private EventMessage event;
 
         public SubscriptionMessage(int id, EventMessage event) {
