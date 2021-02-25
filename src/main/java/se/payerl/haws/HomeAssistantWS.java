@@ -2,6 +2,7 @@ package se.payerl.haws;
 
 import java.net.URI;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import org.java_websocket.client.WebSocketClient;
@@ -27,7 +28,7 @@ public abstract class HomeAssistantWS {
                 System.out.println("Socket_Message: " + message);
 
                 try {
-                    SocketMessage messageObj = getJackson().readValue(message, SocketMessage.class);
+                    SocketMessage messageObj = getJackson().configure(JsonGenerator.Feature.IGNORE_UNKNOWN, true).readValue(message, SocketMessage.class);
                     switch(messageObj.getType()) {
                         case ServerTypes.AUTH_REQUIRED:
                             onAuthRequired(getJackson().readValue(message, InitMessage.class));
