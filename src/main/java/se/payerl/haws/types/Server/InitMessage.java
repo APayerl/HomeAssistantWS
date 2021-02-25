@@ -6,6 +6,7 @@ import se.payerl.haws.types.SocketMessage;
 public class InitMessage extends SocketMessage {
     private String haVersion;
 
+    public InitMessage() {}
     public InitMessage(String haVersion) {
         super(ServerTypes.AUTH_REQUIRED);
         this.haVersion = haVersion;
