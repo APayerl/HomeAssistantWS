@@ -3,6 +3,7 @@ package se.payerl.haws.types;
 public class SocketMessage {
     private String type;
 
+    public SocketMessage() {}
     public SocketMessage(String type) {
         this.type = type;
     }
