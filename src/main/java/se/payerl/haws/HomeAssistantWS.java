@@ -49,7 +49,7 @@ public abstract class HomeAssistantWS {
                             break;
                     }
                 } catch(Exception ex) {
-                    System.err.println(ex.getMessage());
+                    System.err.println("onMessage:" + ex.getMessage());
                 }
             }
 
@@ -108,7 +108,7 @@ public abstract class HomeAssistantWS {
         try {
             this.socket.send(getJackson().writeValueAsString(new Client.AuthMessage(token)));
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.err.println("onAuthRequired:" + ex.getMessage());
         }
     }
 
@@ -128,7 +128,7 @@ public abstract class HomeAssistantWS {
         try {
             this.socket.send(getJackson().writeValueAsString(message));
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.err.println("send:" + ex.getMessage());
         }
     }
 }
