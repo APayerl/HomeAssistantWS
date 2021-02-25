@@ -1,7 +1,5 @@
 package se.payerl.haws.types;
 
-import com.google.gson.annotations.SerializedName;
-
 public abstract class Client {
     public static final String AUTH = "auth";
     public static final String SUBSCRIBE_EVENTS = "subscribe_events";

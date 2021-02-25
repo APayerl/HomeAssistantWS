@@ -1,13 +1,8 @@
 package se.payerl.haws.types;
 
-import com.google.gson.annotations.SerializedName;
-
 public class EventData {
-    @SerializedName("entity_id")
     private String entityId;
-    @SerializedName("old_state")
     private State oldState;
-    @SerializedName("new_state")
     private State newState;
 
     public EventData(String entityId, State oldState, State newState) {

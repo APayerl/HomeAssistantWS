@@ -1,15 +1,10 @@
 package se.payerl.haws.types;
 
-import com.google.gson.annotations.SerializedName;
-
 public class State {
-    @SerializedName("entity_id")
     private String entityId;
     private String state;
     private Attributes attributes;
-    @SerializedName("last_changed")
     private String lastChanged;
-    @SerializedName("last_updated")
     private String lastUpdated;
     private Context context;
 
