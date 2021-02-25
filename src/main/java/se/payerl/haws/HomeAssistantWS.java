@@ -29,25 +29,25 @@ public abstract class HomeAssistantWS {
                 System.out.println("Socket_Message: " + message);
 
                 try {
-                    SocketMessage messageObj = getJackson().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).readValue(message, SocketMessage.class);
+                    SocketMessage messageObj = getJackson(false).readValue(message, SocketMessage.class);
                     switch(messageObj.getType()) {
                         case ServerTypes.AUTH_REQUIRED:
-                            onAuthRequired(getJackson().readValue(message, InitMessage.class));
+                            onAuthRequired(getJackson(true).readValue(message, InitMessage.class));
                             break;
                         case ServerTypes.AUTH_INVALID:
-                            onAuthInvalid(getJackson().readValue(message, AuthInvalidMessage.class));
+                            onAuthInvalid(getJackson(true).readValue(message, AuthInvalidMessage.class));
                             break;
                         case ServerTypes.AUTH_OK:
                             onAuthOk();
                             break;
                         case ServerTypes.RESULT:
-                            onResult(getJackson().readValue(message, ResultMessage.class));
+                            onResult(getJackson(true).readValue(message, ResultMessage.class));
                             break;
                         case ServerTypes.EVENT:
-                            onSubscriptionMessage(getJackson().readValue(message, SubscriptionMessage.class));
+                            onSubscriptionMessage(getJackson(true).readValue(message, SubscriptionMessage.class));
                             break;
                         case ServerTypes.PONG:
-                            onPong(getJackson().readValue(message, ServerMessage.class));
+                            onPong(getJackson(true).readValue(message, ServerMessage.class));
                             break;
                     }
                 } catch(Exception ex) {
@@ -72,9 +72,10 @@ public abstract class HomeAssistantWS {
     private String token;
     private int messages;
 
-    private ObjectMapper getJackson() {
+    private ObjectMapper getJackson(boolean failOnUnknowns) {
         ObjectMapper om = new ObjectMapper();
         om.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, failOnUnknowns);
         return om;
     }
 
