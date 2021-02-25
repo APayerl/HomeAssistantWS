@@ -109,7 +109,7 @@ public abstract class HomeAssistantWS {
 
     public void onAuthRequired(InitMessage message) {
         try {
-            this.socket.send(getJackson().writeValueAsString(new Client.AuthMessage(token)));
+            this.socket.send(getJackson(true).writeValueAsString(new Client.AuthMessage(token)));
         } catch (Exception ex) {
             System.err.println("onAuthRequired:" + ex.getMessage());
         }
@@ -129,7 +129,7 @@ public abstract class HomeAssistantWS {
 
     public void send(Client.ClientMessage message) {
         try {
-            this.socket.send(getJackson().writeValueAsString(message));
+            this.socket.send(getJackson(true).writeValueAsString(message));
         } catch (Exception ex) {
             System.err.println("send:" + ex.getMessage());
         }
