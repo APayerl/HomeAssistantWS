@@ -5,6 +5,7 @@ import se.payerl.haws.types.SocketMessage;
 public class ServerMessage extends SocketMessage {
     private int id;
 
+    public ServerMessage() {}
     public ServerMessage(String type, int id) {
         super(type);
         this.id = id;

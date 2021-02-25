@@ -6,6 +6,7 @@ import se.payerl.haws.types.ServerTypes;
 public class SubscriptionMessage extends ServerMessage {
     private EventMessage event;
 
+    public SubscriptionMessage() {}
     public SubscriptionMessage(int id, EventMessage event) {
         super(ServerTypes.EVENT, id);
         this.event = event;
