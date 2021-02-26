@@ -4,6 +4,7 @@ public class Attributes {
     private String friendlyName;
     private String unitOfMeasurement;
 
+    public Attributes() {}
     public Attributes(String unitOfMeasurement, String friendlyName) {
         this.unitOfMeasurement = unitOfMeasurement;
         this.friendlyName = friendlyName;

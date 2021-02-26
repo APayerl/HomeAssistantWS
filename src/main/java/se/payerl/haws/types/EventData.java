@@ -5,6 +5,7 @@ public class EventData {
     private State oldState;
     private State newState;
 
+    public EventData() {}
     public EventData(String entityId, State oldState, State newState) {
         this.entityId = entityId;
         this.oldState = oldState;

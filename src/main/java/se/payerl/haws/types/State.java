@@ -8,6 +8,7 @@ public class State {
     private String lastUpdated;
     private Context context;
 
+    public State() {}
     public State(String entityId, String state, Attributes attributes, String lastChanged, String lastUpdated, Context context) {
         this.entityId = entityId;
         this.state = state;

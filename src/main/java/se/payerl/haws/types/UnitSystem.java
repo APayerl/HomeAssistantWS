@@ -7,6 +7,8 @@ public class UnitSystem {
     private String temperature;
     private String volume;
 
+    public UnitSystem() {}
+
     public String getLength() {
         return length;
     }

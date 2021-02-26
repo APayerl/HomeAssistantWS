@@ -12,6 +12,7 @@ public class ServiceData {
         return this;
     }
 
+    public ServiceData() {}
     public ServiceData(String entityId) {
         this.entityId = entityId;
     }
