@@ -7,6 +7,7 @@ public class EventMessage {
     private String timeFired;
     private Context context;
 
+    public EventMessage() {}
     public EventMessage(String eventType, EventData data, String origin, String timeFired, Context context) {
         this.eventType = eventType;
         this.data = data;
