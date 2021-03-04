@@ -11,10 +11,20 @@ public class Attributes {
     }
 
     public String getFriendlyName() {
-        return this.friendlyName;
+        return friendlyName;
     }
 
     public String getUnitOfMeasurement() {
-        return this.unitOfMeasurement;
+        return unitOfMeasurement;
+    }
+
+    public Attributes setFriendlyName(String friendlyName) {
+        this.friendlyName = friendlyName;
+        return this;
+    }
+
+    public Attributes setUnitOfMeasurement(String unitOfMeasurement) {
+        this.unitOfMeasurement = unitOfMeasurement;
+        return this;
     }
 }
