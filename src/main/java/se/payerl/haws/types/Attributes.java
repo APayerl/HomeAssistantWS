@@ -1,32 +1,39 @@
 package se.payerl.haws.types;
 
+import java.util.List;
+
 public class Attributes {
     // Alarm
     private String codeFormat;
     private Boolean codeArmRequired;
+    private String changedBy;
+    private String friendlyName;
+    private Integer supportedFeatures;
 
     // Battery operated blind
     private Byte currentPosition;
     private Float batteryVoltage;
 
-    // Sun
+    // weather.home
     private Double temperature;
+    private Byte humidity;
+    private Float pressure;
+    private Float windBearing;
+    private Float windSpeed;
+    private String attribution;
+    private List<Forecast> forecast;
     private String nextDawn;
     private String nextDusk;
     private String nextMidnight;
     private String nextNoon;
 
     // Others
-    private String friendlyName;
     private String unitOfMeasurement;
-    private Integer supportedFeatures;
-    private String changedBy;
     private String prePendingState;
     private String postPendingState;
     private String deviceClass;
     private String icon;
     private String lastTriggered;
-    private Byte humidity;
     private Integer nodeId;
 
 
@@ -133,6 +140,26 @@ public class Attributes {
         return nodeId;
     }
 
+    public Float getPressure() {
+        return pressure;
+    }
+
+    public Float getWindBearing() {
+        return windBearing;
+    }
+
+    public Float getWindSpeed() {
+        return windSpeed;
+    }
+
+    public String getAttribution() {
+        return attribution;
+    }
+
+    public List<Forecast> getForecast() {
+        return forecast;
+    }
+
     public Attributes setFriendlyName(String friendlyName) {
         this.friendlyName = friendlyName;
         return this;
@@ -230,6 +257,31 @@ public class Attributes {
 
     public Attributes setNodeId(int nodeId) {
         this.nodeId = Integer.valueOf(nodeId);
+        return this;
+    }
+
+    public Attributes setPressure(Float pressure) {
+        this.pressure = pressure;
+        return this;
+    }
+
+    public Attributes setWindBearing(Float windBearing) {
+        this.windBearing = windBearing;
+        return this;
+    }
+
+    public Attributes setWindSpeed(Float windSpeed) {
+        this.windSpeed = windSpeed;
+        return this;
+    }
+
+    public Attributes setAttribution(String attribution) {
+        this.attribution = attribution;
+        return this;
+    }
+
+    public Attributes setForecast(List<Forecast> forecast) {
+        this.forecast = forecast;
         return this;
     }
 }
