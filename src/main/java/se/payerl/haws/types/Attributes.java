@@ -26,6 +26,7 @@ public class Attributes {
     private String nextDusk;
     private String nextMidnight;
     private String nextNoon;
+    private String nextRising;
 
     // Others
     private String unitOfMeasurement;
@@ -58,6 +59,12 @@ public class Attributes {
         this.humidity = null;
         this.nextNoon = null;
         this.nodeId = null;
+        this.nextRising = null;
+        this.pressure = null;
+        this.windBearing = null;
+        this.windSpeed = null;
+        this.attribution = null;
+        this.forecast = null;
     }
 
     public String getFriendlyName() {
@@ -158,6 +165,10 @@ public class Attributes {
 
     public List<Forecast> getForecast() {
         return forecast;
+    }
+
+    public String getNextRising() {
+        return nextRising;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -282,6 +293,11 @@ public class Attributes {
 
     public Attributes setForecast(List<Forecast> forecast) {
         this.forecast = forecast;
+        return this;
+    }
+
+    public Attributes setNextRising(String nextRising) {
+        this.nextRising = nextRising;
         return this;
     }
 }
