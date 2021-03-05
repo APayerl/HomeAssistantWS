@@ -3,11 +3,22 @@ package se.payerl.haws.types;
 public class Attributes {
     private String friendlyName;
     private String unitOfMeasurement;
+    private int supportedFeatures;
+    private String codeFormat;
+    private String changedBy;
+    private Boolean codeArmRequired;
+    private String prePendingState;
+    private String postPendingState;
 
-    public Attributes() {}
-    public Attributes(String unitOfMeasurement, String friendlyName) {
-        this.unitOfMeasurement = unitOfMeasurement;
-        this.friendlyName = friendlyName;
+    public Attributes() {
+        this.friendlyName = null;
+        this.unitOfMeasurement = null;
+        this.supportedFeatures = -1;
+        this.codeFormat = null;
+        this.changedBy = null;
+        this.codeArmRequired = null;
+        this.prePendingState = null;
+        this.postPendingState = null;
     }
 
     public String getFriendlyName() {
@@ -18,6 +29,30 @@ public class Attributes {
         return unitOfMeasurement;
     }
 
+    public int getSupportedFeatures() {
+        return supportedFeatures;
+    }
+
+    public String getCodeFormat() {
+        return codeFormat;
+    }
+
+    public String getChangedBy() {
+        return changedBy;
+    }
+
+    public Boolean getCodeArmRequired() {
+        return codeArmRequired;
+    }
+
+    public String getPrePendingState() {
+        return prePendingState;
+    }
+
+    public String getPostPendingState() {
+        return postPendingState;
+    }
+
     public Attributes setFriendlyName(String friendlyName) {
         this.friendlyName = friendlyName;
         return this;
@@ -25,6 +60,36 @@ public class Attributes {
 
     public Attributes setUnitOfMeasurement(String unitOfMeasurement) {
         this.unitOfMeasurement = unitOfMeasurement;
+        return this;
+    }
+
+    public Attributes setSupportedFeatures(int supportedFeatures) {
+        this.supportedFeatures = supportedFeatures;
+        return this;
+    }
+
+    public Attributes setCodeFormat(String codeFormat) {
+        this.codeFormat = codeFormat;
+        return this;
+    }
+
+    public Attributes setChangedBy(String changedBy) {
+        this.changedBy = changedBy;
+        return this;
+    }
+
+    public Attributes setCodeArmRequired(boolean codeArmRequired) {
+        this.codeArmRequired = Boolean.valueOf(codeArmRequired);
+        return this;
+    }
+
+    public Attributes setPrePendingState(String prePendingState) {
+        this.prePendingState = prePendingState;
+        return this;
+    }
+
+    public Attributes setPostPendingState(String postPendingState) {
+        this.postPendingState = postPendingState;
         return this;
     }
 }
