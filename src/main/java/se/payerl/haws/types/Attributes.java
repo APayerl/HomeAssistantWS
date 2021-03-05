@@ -1,23 +1,34 @@
 package se.payerl.haws.types;
 
 public class Attributes {
+    // Alarm
+    private String codeFormat;
+    private Boolean codeArmRequired;
+
+    // Battery operated blind
+    private Byte currentPosition;
+    private Float batteryVoltage;
+
+    // Sun
+    private Double temperature;
+    private String nextDawn;
+    private String nextDusk;
+    private String nextMidnight;
+    private String nextNoon;
+
+    // Others
     private String friendlyName;
     private String unitOfMeasurement;
     private Integer supportedFeatures;
-    private String codeFormat;
     private String changedBy;
-    private Boolean codeArmRequired;
     private String prePendingState;
     private String postPendingState;
-    private String nextDawn;
-    private String nextDusk;
     private String deviceClass;
-    private Double temperature;
     private String icon;
     private String lastTriggered;
-    private String nextMidnight;
-    private Byte currentPosition;
-    private Float batteryVoltage;
+    private Byte humidity;
+    private Integer nodeId;
+
 
     public Attributes() {
         this.friendlyName = null;
@@ -37,6 +48,9 @@ public class Attributes {
         this.nextMidnight = null;
         this.currentPosition = null;
         this.batteryVoltage = null;
+        this.humidity = null;
+        this.nextNoon = null;
+        this.nodeId = null;
     }
 
     public String getFriendlyName() {
@@ -105,6 +119,18 @@ public class Attributes {
 
     public Float getBatteryVoltage() {
         return batteryVoltage;
+    }
+
+    public Byte getHumidity() {
+        return humidity;
+    }
+
+    public String getNextNoon() {
+        return nextNoon;
+    }
+
+    public Integer getNodeId() {
+        return nodeId;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -189,6 +215,21 @@ public class Attributes {
 
     public Attributes setBatteryVoltage(float batteryVoltage) {
         this.batteryVoltage = Float.valueOf(batteryVoltage);
+        return this;
+    }
+
+    public Attributes setHumidity(byte humidity) {
+        this.humidity = Byte.valueOf(humidity);
+        return this;
+    }
+
+    public Attributes setNextNoon(String nextNoon) {
+        this.nextNoon = nextNoon;
+        return this;
+    }
+
+    public Attributes setNodeId(int nodeId) {
+        this.nodeId = Integer.valueOf(nodeId);
         return this;
     }
 }
