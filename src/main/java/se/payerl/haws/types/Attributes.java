@@ -36,6 +36,7 @@ public class Attributes {
     private String icon;
     private String lastTriggered;
     private Integer nodeId;
+    private String releaseNotes;
 
 
     public Attributes() {
@@ -65,6 +66,7 @@ public class Attributes {
         this.windSpeed = null;
         this.attribution = null;
         this.forecast = null;
+        this.releaseNotes = null;
     }
 
     public String getFriendlyName() {
@@ -169,6 +171,10 @@ public class Attributes {
 
     public String getNextRising() {
         return nextRising;
+    }
+
+    public String getReleaseNotes() {
+        return releaseNotes;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -298,6 +304,11 @@ public class Attributes {
 
     public Attributes setNextRising(String nextRising) {
         this.nextRising = nextRising;
+        return this;
+    }
+
+    public Attributes setReleaseNotes(String releaseNotes) {
+        this.releaseNotes = releaseNotes;
         return this;
     }
 }
