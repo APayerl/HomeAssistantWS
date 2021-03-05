@@ -3,7 +3,7 @@ package se.payerl.haws.types;
 public class Attributes {
     private String friendlyName;
     private String unitOfMeasurement;
-    private int supportedFeatures;
+    private Integer supportedFeatures;
     private String codeFormat;
     private String changedBy;
     private Boolean codeArmRequired;
@@ -12,13 +12,17 @@ public class Attributes {
     private String nextDawn;
     private String nextDusk;
     private String deviceClass;
-    private double temperature;
+    private Double temperature;
     private String icon;
+    private String lastTriggered;
+    private String nextMidnight;
+    private Byte currentPosition;
+    private Float batteryVoltage;
 
     public Attributes() {
         this.friendlyName = null;
         this.unitOfMeasurement = null;
-        this.supportedFeatures = -1;
+        this.supportedFeatures = null;
         this.codeFormat = null;
         this.changedBy = null;
         this.codeArmRequired = null;
@@ -27,8 +31,12 @@ public class Attributes {
         this.nextDawn = null;
         this.deviceClass = null;
         this.nextDusk = null;
-        this.temperature = Double.MAX_VALUE;
+        this.temperature = null;
         this.icon = null;
+        this.lastTriggered = null;
+        this.nextMidnight = null;
+        this.currentPosition = null;
+        this.batteryVoltage = null;
     }
 
     public String getFriendlyName() {
@@ -39,7 +47,7 @@ public class Attributes {
         return unitOfMeasurement;
     }
 
-    public int getSupportedFeatures() {
+    public Integer getSupportedFeatures() {
         return supportedFeatures;
     }
 
@@ -75,12 +83,28 @@ public class Attributes {
         return nextDusk;
     }
 
-    public double getTemperature() {
+    public Double getTemperature() {
         return temperature;
     }
 
     public String getIcon() {
         return icon;
+    }
+
+    public String getLastTriggered() {
+        return lastTriggered;
+    }
+
+    public String getNextMidnight() {
+        return nextMidnight;
+    }
+
+    public Byte getCurrentPosition() {
+        return currentPosition;
+    }
+
+    public Float getBatteryVoltage() {
+        return batteryVoltage;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -94,7 +118,7 @@ public class Attributes {
     }
 
     public Attributes setSupportedFeatures(int supportedFeatures) {
-        this.supportedFeatures = supportedFeatures;
+        this.supportedFeatures = Integer.valueOf(supportedFeatures);
         return this;
     }
 
@@ -139,12 +163,32 @@ public class Attributes {
     }
 
     public Attributes setTemperature(double temperature) {
-        this.temperature = temperature;
+        this.temperature = Double.valueOf(temperature);
         return this;
     }
 
     public Attributes setIcon(String icon) {
         this.icon = icon;
+        return this;
+    }
+
+    public Attributes setLastTriggered(String lastTriggered) {
+        this.lastTriggered = lastTriggered;
+        return this;
+    }
+
+    public Attributes setNextMidnight(String nextMidnight) {
+        this.nextMidnight = nextMidnight;
+        return this;
+    }
+
+    public Attributes setCurrentPosition(byte currentPosition) {
+        this.currentPosition = Byte.valueOf(currentPosition);
+        return this;
+    }
+
+    public Attributes setBatteryVoltage(float batteryVoltage) {
+        this.batteryVoltage = Float.valueOf(batteryVoltage);
         return this;
     }
 }
