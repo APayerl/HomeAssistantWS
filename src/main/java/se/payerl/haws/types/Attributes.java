@@ -10,7 +10,10 @@ public class Attributes {
     private String prePendingState;
     private String postPendingState;
     private String nextDawn;
+    private String nextDusk;
     private String deviceClass;
+    private double temperature;
+    private String icon;
 
     public Attributes() {
         this.friendlyName = null;
@@ -23,6 +26,9 @@ public class Attributes {
         this.postPendingState = null;
         this.nextDawn = null;
         this.deviceClass = null;
+        this.nextDusk = null;
+        this.temperature = Double.MAX_VALUE;
+        this.icon = null;
     }
 
     public String getFriendlyName() {
@@ -63,6 +69,18 @@ public class Attributes {
 
     public String getDeviceClass() {
         return deviceClass;
+    }
+
+    public String getNextDusk() {
+        return nextDusk;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public String getIcon() {
+        return icon;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -110,7 +128,23 @@ public class Attributes {
         return this;
     }
 
-    public void setDeviceClass(String deviceClass) {
+    public Attributes setDeviceClass(String deviceClass) {
         this.deviceClass = deviceClass;
+        return this;
+    }
+
+    public Attributes setNextDusk(String nextDusk) {
+        this.nextDusk = nextDusk;
+        return this;
+    }
+
+    public Attributes setTemperature(double temperature) {
+        this.temperature = temperature;
+        return this;
+    }
+
+    public Attributes setIcon(String icon) {
+        this.icon = icon;
+        return this;
     }
 }
