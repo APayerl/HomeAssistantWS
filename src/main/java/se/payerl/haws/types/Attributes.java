@@ -9,6 +9,8 @@ public class Attributes {
     private Boolean codeArmRequired;
     private String prePendingState;
     private String postPendingState;
+    private String nextDawn;
+    private String deviceClass;
 
     public Attributes() {
         this.friendlyName = null;
@@ -19,6 +21,8 @@ public class Attributes {
         this.codeArmRequired = null;
         this.prePendingState = null;
         this.postPendingState = null;
+        this.nextDawn = null;
+        this.deviceClass = null;
     }
 
     public String getFriendlyName() {
@@ -51,6 +55,14 @@ public class Attributes {
 
     public String getPostPendingState() {
         return postPendingState;
+    }
+
+    public String getNextDawn() {
+        return nextDawn;
+    }
+
+    public String getDeviceClass() {
+        return deviceClass;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -91,5 +103,14 @@ public class Attributes {
     public Attributes setPostPendingState(String postPendingState) {
         this.postPendingState = postPendingState;
         return this;
+    }
+
+    public Attributes setNextDawn(String nextDawn) {
+        this.nextDawn = nextDawn;
+        return this;
+    }
+
+    public void setDeviceClass(String deviceClass) {
+        this.deviceClass = deviceClass;
     }
 }
