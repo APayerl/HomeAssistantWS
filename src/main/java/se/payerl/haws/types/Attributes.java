@@ -27,6 +27,7 @@ public class Attributes {
     private String nextMidnight;
     private String nextNoon;
     private String nextRising;
+    private String nextSetting;
 
     // Others
     private String unitOfMeasurement;
@@ -37,6 +38,7 @@ public class Attributes {
     private String lastTriggered;
     private Integer nodeId;
     private String releaseNotes;
+
 
 
     public Attributes() {
@@ -67,6 +69,7 @@ public class Attributes {
         this.attribution = null;
         this.forecast = null;
         this.releaseNotes = null;
+        this.nextSetting = null;
     }
 
     public String getFriendlyName() {
@@ -175,6 +178,10 @@ public class Attributes {
 
     public String getReleaseNotes() {
         return releaseNotes;
+    }
+
+    public String getNextSetting() {
+        return nextSetting;
     }
 
     public Attributes setFriendlyName(String friendlyName) {
@@ -309,6 +316,11 @@ public class Attributes {
 
     public Attributes setReleaseNotes(String releaseNotes) {
         this.releaseNotes = releaseNotes;
+        return this;
+    }
+
+    public Attributes setNextSetting(String nextSetting) {
+        this.nextSetting = nextSetting;
         return this;
     }
 }
