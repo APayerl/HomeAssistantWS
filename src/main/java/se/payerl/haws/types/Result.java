@@ -22,6 +22,7 @@ public class Result {
     private String state;
     private String externalUrl;
     private String internalUrl;
+    private Attributes attributes;
 
     public String getEntityId() {
         return entityId;
@@ -97,6 +98,10 @@ public class Result {
 
     public String getInternalUrl() {
         return internalUrl;
+    }
+
+    public Attributes getAttributes() {
+        return attributes;
     }
 
     public Result setEntityId(String entityId) {
@@ -191,6 +196,11 @@ public class Result {
 
     public Result setInternalUrl(String internalUrl) {
         this.internalUrl = internalUrl;
+        return this;
+    }
+
+    public Result setAttributes(Attributes attributes) {
+        this.attributes = attributes;
         return this;
     }
 }
