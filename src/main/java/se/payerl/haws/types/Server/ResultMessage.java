@@ -5,14 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import se.payerl.haws.types.Result;
 import se.payerl.haws.types.ServerTypes;
 
+import java.util.List;
+
 public class ResultMessage extends ServerMessage {
     private boolean success;
-    private Result result;
+    private List<Result> result;
 
     @JsonCreator
     public ResultMessage(@JsonProperty("id") int id,
                          @JsonProperty("success") boolean success,
-                         @JsonProperty("result") Result result) {
+                         @JsonProperty("result") List<Result> result) {
         super(ServerTypes.RESULT, id);
         this.success = success;
         this.result = result;
@@ -21,7 +23,7 @@ public class ResultMessage extends ServerMessage {
     public boolean getSuccess() {
         return this.success;
     }
-    public Result getResult() {
+    public List<Result> getResult() {
         return this.result;
     }
 }

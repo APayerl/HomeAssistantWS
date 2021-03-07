@@ -10,7 +10,6 @@ public class Result {
     private double latitude;
     private double longitude;
     private int elevation;
-//    @JsonIgnoreProperties(ignoreUnknown = true)
     private UnitSystem unitSystem;
     private String locationName;
     private String timeZone;
