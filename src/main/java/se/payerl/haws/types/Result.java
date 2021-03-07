@@ -1,11 +1,9 @@
 package se.payerl.haws.types;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.List;
 
-//@JsonAutoDetect(fieldVisibility=JsonAutoDetect.Visibility.ANY)
 public class Result {
+    private String entityId;
     private Context context;
     private double latitude;
     private double longitude;
@@ -24,6 +22,10 @@ public class Result {
     private String state;
     private String externalUrl;
     private String internalUrl;
+
+    public String getEntityId() {
+        return entityId;
+    }
 
     public Context getContext() {
         return context;
@@ -95,6 +97,11 @@ public class Result {
 
     public String getInternalUrl() {
         return internalUrl;
+    }
+
+    public Result setEntityId(String entityId) {
+        this.entityId = entityId;
+        return this;
     }
 
     public Result setContext(Context context) {
