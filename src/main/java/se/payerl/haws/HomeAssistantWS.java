@@ -52,7 +52,7 @@ public abstract class HomeAssistantWS {
                     }
                 } catch(Exception ex) {
                     System.err.println("onMessage:" + ex.getMessage());
-                    ex.fillInStackTrace();
+                    ex.printStackTrace();
                 }
             }
 
