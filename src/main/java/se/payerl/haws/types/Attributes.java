@@ -1,7 +1,10 @@
 package se.payerl.haws.types;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Attributes {
     // Alarm
     private String codeFormat;
@@ -9,6 +12,8 @@ public class Attributes {
     private String changedBy;
     private String friendlyName;
     private Integer supportedFeatures;
+    private String prePendingState;
+    private String postPendingState;
 
     // Battery operated blind
     private Byte currentPosition;
@@ -30,20 +35,18 @@ public class Attributes {
     private String nextSetting;
 
     // Others
-    private String unitOfMeasurement;
-    private String prePendingState;
-    private String postPendingState;
-    private String deviceClass;
-    private String icon;
-    private String lastTriggered;
-    private Integer nodeId;
-    private String releaseNotes;
+//    private String unitOfMeasurement;
+//    private String deviceClass;
+//    private String icon;
+//    private String lastTriggered;
+//    private Integer nodeId;
+//    private String releaseNotes;
 
 
 
     public Attributes() {
         this.friendlyName = null;
-        this.unitOfMeasurement = null;
+//        this.unitOfMeasurement = null;
         this.supportedFeatures = null;
         this.codeFormat = null;
         this.changedBy = null;
@@ -51,24 +54,24 @@ public class Attributes {
         this.prePendingState = null;
         this.postPendingState = null;
         this.nextDawn = null;
-        this.deviceClass = null;
+//        this.deviceClass = null;
         this.nextDusk = null;
         this.temperature = null;
-        this.icon = null;
-        this.lastTriggered = null;
+//        this.icon = null;
+//        this.lastTriggered = null;
         this.nextMidnight = null;
         this.currentPosition = null;
         this.batteryVoltage = null;
         this.humidity = null;
         this.nextNoon = null;
-        this.nodeId = null;
+//        this.nodeId = null;
         this.nextRising = null;
         this.pressure = null;
         this.windBearing = null;
         this.windSpeed = null;
         this.attribution = null;
         this.forecast = null;
-        this.releaseNotes = null;
+//        this.releaseNotes = null;
         this.nextSetting = null;
     }
 
@@ -76,9 +79,9 @@ public class Attributes {
         return friendlyName;
     }
 
-    public String getUnitOfMeasurement() {
-        return unitOfMeasurement;
-    }
+//    public String getUnitOfMeasurement() {
+//        return unitOfMeasurement;
+//    }
 
     public Integer getSupportedFeatures() {
         return supportedFeatures;
@@ -108,9 +111,9 @@ public class Attributes {
         return nextDawn;
     }
 
-    public String getDeviceClass() {
-        return deviceClass;
-    }
+//    public String getDeviceClass() {
+//        return deviceClass;
+//    }
 
     public String getNextDusk() {
         return nextDusk;
@@ -120,13 +123,13 @@ public class Attributes {
         return temperature;
     }
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public String getLastTriggered() {
-        return lastTriggered;
-    }
+//    public String getIcon() {
+//        return icon;
+//    }
+//
+//    public String getLastTriggered() {
+//        return lastTriggered;
+//    }
 
     public String getNextMidnight() {
         return nextMidnight;
@@ -148,9 +151,9 @@ public class Attributes {
         return nextNoon;
     }
 
-    public Integer getNodeId() {
-        return nodeId;
-    }
+//    public Integer getNodeId() {
+//        return nodeId;
+//    }
 
     public Float getPressure() {
         return pressure;
@@ -176,9 +179,9 @@ public class Attributes {
         return nextRising;
     }
 
-    public String getReleaseNotes() {
-        return releaseNotes;
-    }
+//    public String getReleaseNotes() {
+//        return releaseNotes;
+//    }
 
     public String getNextSetting() {
         return nextSetting;
@@ -189,10 +192,10 @@ public class Attributes {
         return this;
     }
 
-    public Attributes setUnitOfMeasurement(String unitOfMeasurement) {
-        this.unitOfMeasurement = unitOfMeasurement;
-        return this;
-    }
+//    public Attributes setUnitOfMeasurement(String unitOfMeasurement) {
+//        this.unitOfMeasurement = unitOfMeasurement;
+//        return this;
+//    }
 
     public Attributes setSupportedFeatures(int supportedFeatures) {
         this.supportedFeatures = Integer.valueOf(supportedFeatures);
@@ -229,10 +232,10 @@ public class Attributes {
         return this;
     }
 
-    public Attributes setDeviceClass(String deviceClass) {
-        this.deviceClass = deviceClass;
-        return this;
-    }
+//    public Attributes setDeviceClass(String deviceClass) {
+//        this.deviceClass = deviceClass;
+//        return this;
+//    }
 
     public Attributes setNextDusk(String nextDusk) {
         this.nextDusk = nextDusk;
@@ -244,15 +247,15 @@ public class Attributes {
         return this;
     }
 
-    public Attributes setIcon(String icon) {
-        this.icon = icon;
-        return this;
-    }
-
-    public Attributes setLastTriggered(String lastTriggered) {
-        this.lastTriggered = lastTriggered;
-        return this;
-    }
+//    public Attributes setIcon(String icon) {
+//        this.icon = icon;
+//        return this;
+//    }
+//
+//    public Attributes setLastTriggered(String lastTriggered) {
+//        this.lastTriggered = lastTriggered;
+//        return this;
+//    }
 
     public Attributes setNextMidnight(String nextMidnight) {
         this.nextMidnight = nextMidnight;
@@ -279,10 +282,10 @@ public class Attributes {
         return this;
     }
 
-    public Attributes setNodeId(int nodeId) {
-        this.nodeId = Integer.valueOf(nodeId);
-        return this;
-    }
+//    public Attributes setNodeId(int nodeId) {
+//        this.nodeId = Integer.valueOf(nodeId);
+//        return this;
+//    }
 
     public Attributes setPressure(Float pressure) {
         this.pressure = pressure;
@@ -314,10 +317,10 @@ public class Attributes {
         return this;
     }
 
-    public Attributes setReleaseNotes(String releaseNotes) {
-        this.releaseNotes = releaseNotes;
-        return this;
-    }
+//    public Attributes setReleaseNotes(String releaseNotes) {
+//        this.releaseNotes = releaseNotes;
+//        return this;
+//    }
 
     public Attributes setNextSetting(String nextSetting) {
         this.nextSetting = nextSetting;
