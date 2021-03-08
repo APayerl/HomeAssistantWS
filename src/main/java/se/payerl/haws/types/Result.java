@@ -23,6 +23,8 @@ public class Result {
     private String externalUrl;
     private String internalUrl;
     private Attributes attributes;
+    private String lastChanged;
+    private String lastUpdated;
 
     public String getEntityId() {
         return entityId;
@@ -102,6 +104,14 @@ public class Result {
 
     public Attributes getAttributes() {
         return attributes;
+    }
+
+    public String getLastChanged() {
+        return lastChanged;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
     }
 
     public Result setEntityId(String entityId) {
@@ -201,6 +211,16 @@ public class Result {
 
     public Result setAttributes(Attributes attributes) {
         this.attributes = attributes;
+        return this;
+    }
+
+    public Result setLastChanged(String lastChanged) {
+        this.lastChanged = lastChanged;
+        return this;
+    }
+
+    public Result setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
         return this;
     }
 }
