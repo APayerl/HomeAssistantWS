@@ -29,20 +29,24 @@ public abstract class Client {
     public static class ClientMessage extends SocketMessage {
         private int id;
 
-        public ClientMessage(String type, int id) {
+        public ClientMessage(String type) {
             super(type);
-            this.id = id;
         }
 
         public int getId() {
             return id;
         }
+
+        public ClientMessage setId(int id) {
+            this.id = id;
+            return this;
+        }
     }
     public static class SubscribeMessage extends ClientMessage {
         private String eventType;
 
-        public SubscribeMessage(int id) {
-            super(SUBSCRIBE_EVENTS, id);
+        public SubscribeMessage() {
+            super(SUBSCRIBE_EVENTS);
             this.eventType = eventType;
         }
 
@@ -58,8 +62,8 @@ public abstract class Client {
     public static class UnsubscribeMessage extends ClientMessage {
         private int subscription;
 
-        public UnsubscribeMessage(int id, int subscription) {
-            super(UNSUBSCRIBE_EVENTS, id);
+        public UnsubscribeMessage(int subscription) {
+            super(UNSUBSCRIBE_EVENTS);
             this.subscription = subscription;
         }
 
@@ -72,8 +76,8 @@ public abstract class Client {
         private String service;
         private ServiceData serviceData;
 
-        public CallServiceMessage(int id, String domain, String service) {
-            super(CALL_SERVICE, id);
+        public CallServiceMessage(String domain, String service) {
+            super(CALL_SERVICE);
             this.domain = domain;
             this.service = service;
         }
@@ -96,30 +100,30 @@ public abstract class Client {
         }
     }
     public static class GetStatesMessage extends ClientMessage {
-        public GetStatesMessage(int id) {
-            super(GET_STATES, id);
+        public GetStatesMessage() {
+            super(GET_STATES);
         }
     }
     public static class GetConfigMessage extends ClientMessage {
-        public GetConfigMessage(int id) {
-            super(GET_CONFIG, id);
+        public GetConfigMessage() {
+            super(GET_CONFIG);
         }
     }
     public static class GetServicesMessage extends ClientMessage {
-        public GetServicesMessage(int id) {
-            super(GET_SERVICES, id);
+        public GetServicesMessage() {
+            super(GET_SERVICES);
         }
     }
     public static class GetPanelsMessage extends ClientMessage {
-        public GetPanelsMessage(int id) {
-            super(GET_PANELS, id);
+        public GetPanelsMessage() {
+            super(GET_PANELS);
         }
     }
     public static class ClientEntityMessage extends ClientMessage {
         private String entityId;
 
-        public ClientEntityMessage(String type, int id, String entityId) {
-            super(type, id);
+        public ClientEntityMessage(String type, String entityId) {
+            super(type);
             this.entityId = entityId;
         }
 
@@ -130,18 +134,18 @@ public abstract class Client {
     @Deprecated
     public static class CameraThumbnailMessage extends ClientEntityMessage {
         @Deprecated
-        public CameraThumbnailMessage(int id, String entityId) {
-            super(CAMERA_THUMBNAIL, id, entityId);
+        public CameraThumbnailMessage(String entityId) {
+            super(CAMERA_THUMBNAIL, entityId);
         }
     }
     public static class MediaPlayerThumbnailMessage extends ClientEntityMessage {
-        public MediaPlayerThumbnailMessage(int id, String entityId) {
-            super(MEDIA_PLAYER_THUMBNAIL, id, entityId);
+        public MediaPlayerThumbnailMessage(String entityId) {
+            super(MEDIA_PLAYER_THUMBNAIL, entityId);
         }
     }
     public static class PingMessage extends ClientMessage {
-        public PingMessage(int id) {
-            super(PING, id);
+        public PingMessage() {
+            super(PING);
         }
     }
 
