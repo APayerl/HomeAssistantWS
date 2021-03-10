@@ -4,7 +4,7 @@ Java library to ease use of the Home Assistant WebSocket API.
 
 ## Use HomeAssistantWS
 To use HomeAssistantWS in a project use jitpack.
-The different versions is available here:  https://jitpack.io/#se.payerl/HomeAssistantWS/2021.2.3
+The different versions is available here:  https://jitpack.io/#se.payerl/HomeAssistantWS/2021.3.2
 
 To use jitpack:
 ```
@@ -16,6 +16,6 @@ repositories {
 To use latest release:
 ```
 dependencies {
-    implementation 'se.payerl:HomeAssistantWS:2021.2.3'
+    implementation 'se.payerl:HomeAssistantWS:2021.3.2'
 }
 ```
