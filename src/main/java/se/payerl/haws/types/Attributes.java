@@ -1,82 +1,89 @@
 package se.payerl.haws.types;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Attributes {
-    // Alarm
-    private String codeFormat;
-    private Boolean codeArmRequired;
-    private String changedBy;
-    private String friendlyName;
-    private Integer supportedFeatures;
-    private String prePendingState;
-    private String postPendingState;
+    Map<String, Object> attr = new TreeMap<>();
 
-    // Battery operated blind
-    private Byte currentPosition;
-    private Float batteryVoltage;
-
-    // weather.home
-    private Double temperature;
-    private Byte humidity;
-    private Float pressure;
-    private Float windBearing;
-    private Float windSpeed;
-    private String attribution;
-    private List<Forecast> forecast;
-    private String nextDawn;
-    private String nextDusk;
-    private String nextMidnight;
-    private String nextNoon;
-    private String nextRising;
-    private String nextSetting;
-
-    // Others
-//    private String unitOfMeasurement;
-//    private String deviceClass;
-//    private String icon;
-//    private String lastTriggered;
-//    private Integer nodeId;
-//    private String releaseNotes;
+//    // Alarm
+//    public static String CODE_FORMAT = "codeFormat";
+//    public static String CODE_ARM_FORMAT = "codeArmRequired";
+//    public static String CHANGED_BY = "changedBy";
+//    public static String FRIENDLY_NAME = "friendlyName";
+//    public static String supportedFeatures;
+//    public static String prePendingState;
+//    public static String postPendingState;
+//
+//    // Battery operated blind
+//    private Byte currentPosition;
+//    private Float batteryVoltage;
+//
+//    // weather.home
+//    private Double temperature;
+//    private Byte humidity;
+//    private Float pressure;
+//    private Float windBearing;
+//    private Float windSpeed;
+//    private String attribution;
+//    private List<Forecast> forecast;
+//    private String nextDawn;
+//    private String nextDusk;
+//    private String nextMidnight;
+//    private String nextNoon;
+//    private String nextRising;
+//    private String nextSetting;
+//
+//    // Others
+////    private String unitOfMeasurement;
+////    private String deviceClass;
+////    private String icon;
+////    private String lastTriggered;
+////    private Integer nodeId;
+////    private String releaseNotes;
 
 
 
     public Attributes() {
-        this.friendlyName = null;
-//        this.unitOfMeasurement = null;
-        this.supportedFeatures = null;
-        this.codeFormat = null;
-        this.changedBy = null;
-        this.codeArmRequired = null;
-        this.prePendingState = null;
-        this.postPendingState = null;
-        this.nextDawn = null;
-//        this.deviceClass = null;
-        this.nextDusk = null;
-        this.temperature = null;
-//        this.icon = null;
-//        this.lastTriggered = null;
-        this.nextMidnight = null;
-        this.currentPosition = null;
-        this.batteryVoltage = null;
-        this.humidity = null;
-        this.nextNoon = null;
-//        this.nodeId = null;
-        this.nextRising = null;
-        this.pressure = null;
-        this.windBearing = null;
-        this.windSpeed = null;
-        this.attribution = null;
-        this.forecast = null;
-//        this.releaseNotes = null;
-        this.nextSetting = null;
+//        this.friendlyName = null;
+////        this.unitOfMeasurement = null;
+//        this.supportedFeatures = null;
+//        this.codeFormat = null;
+//        this.changedBy = null;
+//        this.codeArmRequired = null;
+//        this.prePendingState = null;
+//        this.postPendingState = null;
+//        this.nextDawn = null;
+////        this.deviceClass = null;
+//        this.nextDusk = null;
+//        this.temperature = null;
+////        this.icon = null;
+////        this.lastTriggered = null;
+//        this.nextMidnight = null;
+//        this.currentPosition = null;
+//        this.batteryVoltage = null;
+//        this.humidity = null;
+//        this.nextNoon = null;
+////        this.nodeId = null;
+//        this.nextRising = null;
+//        this.pressure = null;
+//        this.windBearing = null;
+//        this.windSpeed = null;
+//        this.attribution = null;
+//        this.forecast = null;
+////        this.releaseNotes = null;
+//        this.nextSetting = null;
     }
 
     public String getFriendlyName() {
-        return friendlyName;
+//        return friendlyName;
+        return (String) attr.get("friendlyName");
     }
 
 //    public String getUnitOfMeasurement() {
@@ -84,31 +91,38 @@ public class Attributes {
 //    }
 
     public Integer getSupportedFeatures() {
-        return supportedFeatures;
+//        return supportedFeatures;
+        return (Integer) attr.get("supportedFeatures");
     }
 
     public String getCodeFormat() {
-        return codeFormat;
+//        return codeFormat;
+        return (String) attr.get("codeFormat");
     }
 
     public String getChangedBy() {
-        return changedBy;
+//        return changedBy;
+        return (String) attr.get("changedBy");
     }
 
     public Boolean getCodeArmRequired() {
-        return codeArmRequired;
+//        return codeArmRequired;
+        return (Boolean) attr.get("codeArmRequired");
     }
 
     public String getPrePendingState() {
-        return prePendingState;
+//        return prePendingState;
+        return (String) attr.get("prePendingState");
     }
 
     public String getPostPendingState() {
-        return postPendingState;
+//        return postPendingState;
+        return (String) attr.get("postPendingState");
     }
 
     public String getNextDawn() {
-        return nextDawn;
+//        return nextDawn;
+        return (String) attr.get("nextDawn");
     }
 
 //    public String getDeviceClass() {
@@ -116,11 +130,13 @@ public class Attributes {
 //    }
 
     public String getNextDusk() {
-        return nextDusk;
+//        return nextDusk;
+        return (String) attr.get("nextDusk");
     }
 
     public Double getTemperature() {
-        return temperature;
+//        return temperature;
+        return (Double) attr.get("temperature");
     }
 
 //    public String getIcon() {
@@ -132,23 +148,28 @@ public class Attributes {
 //    }
 
     public String getNextMidnight() {
-        return nextMidnight;
+//        return nextMidnight;
+        return (String) attr.get("nextMidnight");
     }
 
     public Byte getCurrentPosition() {
-        return currentPosition;
+//        return currentPosition;
+        return (Byte) attr.get("currentPosition");
     }
 
     public Float getBatteryVoltage() {
-        return batteryVoltage;
+//        return batteryVoltage;
+        return (Float) attr.get("batteryVoltage");
     }
 
     public Byte getHumidity() {
-        return humidity;
+//        return humidity;
+        return (Byte) attr.get("humidity");
     }
 
     public String getNextNoon() {
-        return nextNoon;
+//        return nextNoon;
+        return (String) attr.get("nextNoon");
     }
 
 //    public Integer getNodeId() {
@@ -156,27 +177,33 @@ public class Attributes {
 //    }
 
     public Float getPressure() {
-        return pressure;
+//        return pressure;
+        return (Float) attr.get("pressure");
     }
 
     public Float getWindBearing() {
-        return windBearing;
+//        return windBearing;
+        return (Float) attr.get("windBearing");
     }
 
     public Float getWindSpeed() {
-        return windSpeed;
+//        return windSpeed;
+        return (Float) attr.get("windSpeed");
     }
 
     public String getAttribution() {
-        return attribution;
+//        return attribution;
+        return (String) attr.get("attribution");
     }
 
     public List<Forecast> getForecast() {
-        return forecast;
+//        return forecast;
+        return (List<Forecast>) attr.get("forecast");
     }
 
     public String getNextRising() {
-        return nextRising;
+//        return nextRising;
+        return (String) attr.get("nextRising");
     }
 
 //    public String getReleaseNotes() {
@@ -184,146 +211,20 @@ public class Attributes {
 //    }
 
     public String getNextSetting() {
-        return nextSetting;
+//        return nextSetting;
+        return (String) attr.get("nextSetting");
     }
 
-    public Attributes setFriendlyName(String friendlyName) {
-        this.friendlyName = friendlyName;
+
+    @JsonAnySetter
+    public Attributes setAttribute(String key, Object value) {
+        attr.put(key, value);
         return this;
     }
 
-//    public Attributes setUnitOfMeasurement(String unitOfMeasurement) {
-//        this.unitOfMeasurement = unitOfMeasurement;
-//        return this;
-//    }
-
-    public Attributes setSupportedFeatures(int supportedFeatures) {
-        this.supportedFeatures = Integer.valueOf(supportedFeatures);
-        return this;
+    @JsonAnyGetter
+    public Object getAttribute(String key) {
+        return attr.get(key);
     }
 
-    public Attributes setCodeFormat(String codeFormat) {
-        this.codeFormat = codeFormat;
-        return this;
-    }
-
-    public Attributes setChangedBy(String changedBy) {
-        this.changedBy = changedBy;
-        return this;
-    }
-
-    public Attributes setCodeArmRequired(boolean codeArmRequired) {
-        this.codeArmRequired = Boolean.valueOf(codeArmRequired);
-        return this;
-    }
-
-    public Attributes setPrePendingState(String prePendingState) {
-        this.prePendingState = prePendingState;
-        return this;
-    }
-
-    public Attributes setPostPendingState(String postPendingState) {
-        this.postPendingState = postPendingState;
-        return this;
-    }
-
-    public Attributes setNextDawn(String nextDawn) {
-        this.nextDawn = nextDawn;
-        return this;
-    }
-
-//    public Attributes setDeviceClass(String deviceClass) {
-//        this.deviceClass = deviceClass;
-//        return this;
-//    }
-
-    public Attributes setNextDusk(String nextDusk) {
-        this.nextDusk = nextDusk;
-        return this;
-    }
-
-    public Attributes setTemperature(double temperature) {
-        this.temperature = Double.valueOf(temperature);
-        return this;
-    }
-
-//    public Attributes setIcon(String icon) {
-//        this.icon = icon;
-//        return this;
-//    }
-//
-//    public Attributes setLastTriggered(String lastTriggered) {
-//        this.lastTriggered = lastTriggered;
-//        return this;
-//    }
-
-    public Attributes setNextMidnight(String nextMidnight) {
-        this.nextMidnight = nextMidnight;
-        return this;
-    }
-
-    public Attributes setCurrentPosition(byte currentPosition) {
-        this.currentPosition = Byte.valueOf(currentPosition);
-        return this;
-    }
-
-    public Attributes setBatteryVoltage(float batteryVoltage) {
-        this.batteryVoltage = Float.valueOf(batteryVoltage);
-        return this;
-    }
-
-    public Attributes setHumidity(byte humidity) {
-        this.humidity = Byte.valueOf(humidity);
-        return this;
-    }
-
-    public Attributes setNextNoon(String nextNoon) {
-        this.nextNoon = nextNoon;
-        return this;
-    }
-
-//    public Attributes setNodeId(int nodeId) {
-//        this.nodeId = Integer.valueOf(nodeId);
-//        return this;
-//    }
-
-    public Attributes setPressure(Float pressure) {
-        this.pressure = pressure;
-        return this;
-    }
-
-    public Attributes setWindBearing(Float windBearing) {
-        this.windBearing = windBearing;
-        return this;
-    }
-
-    public Attributes setWindSpeed(Float windSpeed) {
-        this.windSpeed = windSpeed;
-        return this;
-    }
-
-    public Attributes setAttribution(String attribution) {
-        this.attribution = attribution;
-        return this;
-    }
-
-    public Attributes setForecast(List<Forecast> forecast) {
-        this.forecast = forecast;
-        return this;
-    }
-
-    public Attributes setNextRising(String nextRising) {
-        this.nextRising = nextRising;
-        return this;
-    }
-
-//    public Attributes setReleaseNotes(String releaseNotes) {
-//        this.releaseNotes = releaseNotes;
-//        return this;
-//    }
-
-    public Attributes setNextSetting(String nextSetting) {
-        this.nextSetting = nextSetting;
-        return this;
-    }
 }
