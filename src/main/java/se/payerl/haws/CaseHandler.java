@@ -29,7 +29,7 @@ public final class CaseHandler {
                 lastModified = second + 1;
             }
         }
-        if(lastModified != (original.length() - 1)) {
+        if(lastModified != (original.length())) {
             modified += original.substring(lastModified);
         }
         if(modified.length() > 0 && Character.isUpperCase(modified.charAt(0))) {
