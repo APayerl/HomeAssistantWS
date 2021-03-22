@@ -2,6 +2,7 @@ package se.payerl.haws.types;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.TreeMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Attributes {
+    @JsonIgnore
     Map<String, Object> attr = new TreeMap<>();
 
 //    // Alarm
