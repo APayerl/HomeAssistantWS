@@ -128,6 +128,7 @@ public class Attributes {
 
     @JsonAnySetter
     public void add(String key, Object value) {
+        System.out.println(key + " to " + CaseHandler.snake_case_ToCamelCase(key));
         this.attr.put(CaseHandler.snake_case_ToCamelCase(key), value);
     }
 
