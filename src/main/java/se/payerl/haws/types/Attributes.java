@@ -219,11 +219,11 @@ public class Attributes {
 
 
     @JsonAnySetter
-    public void setAttribute(String key, Object value) {
+    public void add(String key, Object value) {
         this.attr.put(key, value);
     }
 
-    @JsonAnyGetter
+    @JsonAnyGetter(enabled = true)
     public Map<String, Object> getAttributes() {
         return this.attr;
     }
