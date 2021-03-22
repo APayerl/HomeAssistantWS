@@ -217,14 +217,17 @@ public class Attributes {
 
 
     @JsonAnySetter
-    public Attributes setAttribute(String key, Object value) {
-        attr.put(key, value);
-        return this;
+    public void setAttribute(String key, Object value) {
+        this.attr.put(key, value);
     }
 
     @JsonAnyGetter
+    public Map<String, Object> getAttributes() {
+        return this.attr;
+    }
+
     public Object getAttribute(String key) {
-        return attr.get(key);
+        return this.attr.get(key);
     }
 
 }
