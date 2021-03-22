@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Attributes {
     @JsonIgnore
-    Map<String, Object> attr = new TreeMap<>();
+    private Map<String, Object> attr = new TreeMap<>();
 
 //    // Alarm
 //    public static String CODE_FORMAT = "codeFormat";
@@ -228,6 +228,7 @@ public class Attributes {
         return this.attr;
     }
 
+    @JsonIgnore
     public Object getAttribute(String key) {
         return this.attr.get(key);
     }
