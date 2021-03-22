@@ -3,10 +3,12 @@ package se.payerl.haws.types;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import se.payerl.haws.CaseHandler;
 
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class Attributes {
     @JsonIgnore
@@ -126,17 +128,19 @@ public class Attributes {
 
     @JsonAnySetter
     public void add(String key, Object value) {
-        this.attr.put(key, value);
+        this.attr.put(CaseHandler.snake_case_ToCamelCase(key), value);
     }
 
     @JsonAnyGetter(enabled = true)
     public Map<String, Object> getAttributes() {
-        return this.attr;
+        Map<String, Object> mMap = new TreeMap<>();
+        this.attr.entrySet().forEach(entry ->
+                mMap.put(CaseHandler.camelCaseTo_snake_case(entry.getKey()), entry.getValue()));
+        return mMap;
     }
 
     @JsonIgnore
     public Object getAttribute(String key) {
         return this.attr.get(key);
     }
-
 }
