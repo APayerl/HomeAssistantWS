@@ -44,14 +44,15 @@ public class ResultMessage extends ServerMessage {
         return this;
     }
 
-    public ResultMessage setResult(List<Result> results) {
-        this.result = results;
-        return this;
-    }
-
-    public ResultMessage setResult(Result result) {
-        this.result = new ArrayList<>();
-        this.result.add(result);
+    public ResultMessage setResult(Object results) {
+        if(results instanceof List) {
+            this.result = (List<Result>) results;
+        } else if(results instanceof Result) {
+            this.result = new ArrayList<>();
+            this.result.add((Result) results);
+        } else {
+            this.result = null;
+        }
         return this;
     }
 }
