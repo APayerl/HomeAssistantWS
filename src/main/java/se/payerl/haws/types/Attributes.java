@@ -140,6 +140,11 @@ public class Attributes {
     }
 
     @JsonIgnore
+    public boolean hasAttribute(String key) {
+        return this.attr.containsKey(key);
+    }
+
+    @JsonIgnore
     public Object getAttribute(String key) {
         return this.attr.get(key);
     }
