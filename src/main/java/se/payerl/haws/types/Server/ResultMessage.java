@@ -21,9 +21,9 @@ public class ResultMessage extends ServerMessage {
         this.results = result;
     }
     @JsonCreator
-    public ResultMessage(int id,
-                         boolean success,
-                         Result result) {
+    public ResultMessage(@JsonProperty("id") int id,
+                         @JsonProperty("success") boolean success,
+                         @JsonProperty("results") Result result) {
         super(ServerTypes.RESULT, id);
         this.success = success;
         this.results.add(result);
