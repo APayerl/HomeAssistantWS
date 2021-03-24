@@ -35,7 +35,7 @@ public class ResultMessage extends ServerMessage {
         return this.success;
     }
     public List<Result> getResult() {
-        System.out.println("ResultMessage::getResult - " + this.result.size());
+        System.out.println("ResultMessage::getResult");
         if(this.result == null || this.result.size() == 0) {
             return null;
         } else {
