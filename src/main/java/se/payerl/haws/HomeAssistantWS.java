@@ -74,7 +74,7 @@ public abstract class HomeAssistantWS {
     private String token;
     private int messages;
 
-    private ObjectMapper getJackson(boolean failOnUnknowns) {
+    public static ObjectMapper getJackson(boolean failOnUnknowns) {
         ObjectMapper om = new ObjectMapper();
         om.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, failOnUnknowns);

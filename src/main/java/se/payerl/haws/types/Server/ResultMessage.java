@@ -2,6 +2,8 @@ package se.payerl.haws.types.Server;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
+import se.payerl.haws.HomeAssistantWS;
 import se.payerl.haws.types.Result;
 import se.payerl.haws.types.ServerTypes;
 
@@ -48,7 +50,7 @@ public class ResultMessage extends ServerMessage {
 
     public ResultMessage setResult(Object results) {
         if(results instanceof List) {
-            this.result = (List<Result>) results;
+            this.result = HomeAssistantWS.getJackson(true).convertValue((List) results, new TypeReference<List<Result>>() {});
         } else if(results instanceof Result) {
             this.result = new ArrayList<>();
             this.result.add((Result) results);
