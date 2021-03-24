@@ -29,6 +29,7 @@ public abstract class HomeAssistantWS {
 
                 try {
                     SocketMessage messageObj = getJackson(false).readValue(message, SocketMessage.class);
+                    System.out.println("HomeAssistantWS::onMessage - Time to switch");
                     switch(messageObj.getType()) {
                         case ServerTypes.AUTH_REQUIRED:
                             onAuthRequired(getJackson(true).readValue(message, InitMessage.class));
