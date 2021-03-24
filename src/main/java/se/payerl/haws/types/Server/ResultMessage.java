@@ -33,7 +33,11 @@ public class ResultMessage extends ServerMessage {
         return this.success;
     }
     public Result getResult() {
-        return this.result.get(0);
+        if(this.result == null || this.result.size() == 0) {
+            return null;
+        } else {
+            return this.result.get(0);
+        }
     }
     public List<Result> getResults() {
         return this.result;
