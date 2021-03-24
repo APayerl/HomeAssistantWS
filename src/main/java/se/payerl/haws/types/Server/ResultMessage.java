@@ -5,25 +5,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import se.payerl.haws.types.Result;
 import se.payerl.haws.types.ServerTypes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResultMessage extends ServerMessage {
     private boolean success;
-    private List<Result> result;
+    private List<Result> results = new ArrayList<>();
 
     @JsonCreator
     public ResultMessage(@JsonProperty("id") int id,
                          @JsonProperty("success") boolean success,
-                         @JsonProperty("result") List<Result> result) {
+                         @JsonProperty("results") List<Result> result) {
         super(ServerTypes.RESULT, id);
         this.success = success;
-        this.result = result;
+        this.results = result;
+    }
+    @JsonCreator
+    public ResultMessage(int id,
+                         boolean success,
+                         Result result) {
+        super(ServerTypes.RESULT, id);
+        this.success = success;
+        this.results.add(result);
     }
 
     public boolean getSuccess() {
         return this.success;
     }
-    public List<Result> getResult() {
-        return this.result;
+    public Result getResult() {
+        return this.results.get(0);
+    }
+    public List<Result> getResults() {
+        return this.results;
     }
 }
