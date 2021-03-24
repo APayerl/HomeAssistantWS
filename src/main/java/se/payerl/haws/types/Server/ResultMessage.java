@@ -32,16 +32,13 @@ public class ResultMessage extends ServerMessage {
     public boolean getSuccess() {
         return this.success;
     }
-    public Result getResult() {
+    public List<Result> getResult() {
         System.out.println("ResultMessage::getResult - " + this.result.size());
         if(this.result == null || this.result.size() == 0) {
             return null;
         } else {
-            return this.result.get(0);
+            return this.result;
         }
-    }
-    public List<Result> getResults() {
-        return this.result;
     }
 
     public ResultMessage setSuccess(boolean success) {
