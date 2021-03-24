@@ -41,6 +41,7 @@ public abstract class HomeAssistantWS {
                             onAuthOk();
                             break;
                         case ServerTypes.RESULT:
+                            System.out.println("HomeAssistantWS::onMessage - Serialize as ResultMessage");
                             onResult(getJackson(true).readValue(message, ResultMessage.class));
                             break;
                         case ServerTypes.EVENT:
