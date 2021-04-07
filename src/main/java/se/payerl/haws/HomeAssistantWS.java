@@ -60,6 +60,7 @@ public abstract class HomeAssistantWS {
             @Override
             public void onClose(int code, String reason, boolean remote) {
                 System.out.println("Socket_Closed: " + code + " - " + reason + " - " + remote);
+                this.close();
             }
 
             @Override
