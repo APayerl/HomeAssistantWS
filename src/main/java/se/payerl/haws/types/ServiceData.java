@@ -14,8 +14,9 @@ public class ServiceData {
     public ServiceData() { }
 
     @JsonAnySetter
-    public void add(String key, Object value) {
+    public ServiceData add(String key, Object value) {
         this.attr.put(CaseHandler.snake_case_ToCamelCase(key), value);
+        return this;
     }
 
     @JsonAnyGetter(enabled = true)
