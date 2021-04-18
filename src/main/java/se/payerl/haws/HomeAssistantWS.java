@@ -25,11 +25,8 @@ public abstract class HomeAssistantWS {
 
             @Override
             public void onMessage(String message) {
-                System.out.println("Socket_Message: " + message);
-
                 try {
                     SocketMessage messageObj = getJackson(false).readValue(message, SocketMessage.class);
-                    System.out.println("HomeAssistantWS::onMessage - Time to switch");
                     switch(messageObj.getType()) {
                         case ServerTypes.AUTH_REQUIRED:
                             onAuthRequired(getJackson(true).readValue(message, InitMessage.class));
@@ -41,7 +38,6 @@ public abstract class HomeAssistantWS {
                             onAuthOk();
                             break;
                         case ServerTypes.RESULT:
-                            System.out.println("HomeAssistantWS::onMessage - Serialize as ResultMessage");
                             onResult(getJackson(true).readValue(message, ResultMessage.class));
                             break;
                         case ServerTypes.EVENT:
