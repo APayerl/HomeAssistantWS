@@ -14,28 +14,10 @@ public class ResultMessage extends ServerMessage {
     private Boolean success = null;
     private List<Result> result = null;
 
-//    @JsonCreator
-//    public ResultMessage(@JsonProperty("id") int id,
-//                         @JsonProperty("success") boolean success,
-//                         @JsonProperty("results") List<Result> result) {
-//        super(ServerTypes.RESULT, id);
-//        this.success = success;
-//        this.results = result;
-//    }
-//    @JsonCreator
-//    public ResultMessage(@JsonProperty("id") int id,
-//                         @JsonProperty("success") boolean success,
-//                         @JsonProperty("results") Result result) {
-//        super(ServerTypes.RESULT, id);
-//        this.success = success;
-//        this.results.add(result);
-//    }
-
     public boolean getSuccess() {
         return this.success;
     }
     public List<Result> getResult() {
-        System.out.println("ResultMessage::getResult");
         if(this.result == null || this.result.size() == 0) {
             return null;
         } else {
