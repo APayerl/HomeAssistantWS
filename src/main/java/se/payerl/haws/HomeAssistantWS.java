@@ -128,7 +128,7 @@ public abstract class HomeAssistantWS {
     }
 
     public void onConnectionClose(int code) {
-        
+
     }
 
     public void send(Client.ClientMessage message) {
