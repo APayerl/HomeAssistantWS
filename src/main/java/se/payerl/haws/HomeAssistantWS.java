@@ -16,60 +16,13 @@ public abstract class HomeAssistantWS {
     public HomeAssistantWS(URI serverUri, String token) {
 //        super(serverUri);
         this.token = token;
-        this.messages = 1;
-        this.socket = new WebSocketClient(serverUri) {
-            @Override
-            public void onOpen(ServerHandshake handshakedata) {
-                System.out.println("Socket_Opened");
-            }
-
-            @Override
-            public void onMessage(String message) {
-                try {
-                    SocketMessage messageObj = getJackson(false).readValue(message, SocketMessage.class);
-                    switch(messageObj.getType()) {
-                        case ServerTypes.AUTH_REQUIRED:
-                            onAuthRequired(getJackson(true).readValue(message, InitMessage.class));
-                            break;
-                        case ServerTypes.AUTH_INVALID:
-                            onAuthInvalid(getJackson(true).readValue(message, AuthInvalidMessage.class));
-                            break;
-                        case ServerTypes.AUTH_OK:
-                            onAuthOk();
-                            break;
-                        case ServerTypes.RESULT:
-                            onResult(getJackson(true).readValue(message, ResultMessage.class));
-                            break;
-                        case ServerTypes.EVENT:
-                            onSubscriptionMessage(getJackson(true).readValue(message, SubscriptionMessage.class));
-                            break;
-                        case ServerTypes.PONG:
-                            onPong(getJackson(true).readValue(message, ServerMessage.class));
-                            break;
-                    }
-                } catch(Exception ex) {
-                    System.err.println("onMessage:" + ex.getMessage());
-                    ex.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onClose(int code, String reason, boolean remote) {
-                System.out.println("Socket_Closed: " + code + " - " + reason + " - " + remote);
-                onConnectionClose(code);
-                this.close();
-            }
-
-            @Override
-            public void onError(Exception ex) {
-                System.out.println("Socket_Error: " + ex.getMessage());
-                ex.fillInStackTrace();
-            }
-        };
+        this.serverUri = serverUri;
+        reconnect();
     }
 
     private WebSocketClient socket;
     private String token;
+    private URI serverUri;
     private int messages;
 
     public static ObjectMapper getJackson(boolean failOnUnknowns) {
@@ -129,6 +82,59 @@ public abstract class HomeAssistantWS {
 
     public void onConnectionClose(int code) {
 
+    }
+
+    public void reconnect() {
+        this.messages = 1;
+        this.socket = new WebSocketClient(serverUri) {
+            @Override
+            public void onOpen(ServerHandshake handshakedata) {
+                System.out.println("Socket_Opened");
+            }
+
+            @Override
+            public void onMessage(String message) {
+                try {
+                    SocketMessage messageObj = getJackson(false).readValue(message, SocketMessage.class);
+                    switch(messageObj.getType()) {
+                        case ServerTypes.AUTH_REQUIRED:
+                            onAuthRequired(getJackson(true).readValue(message, InitMessage.class));
+                            break;
+                        case ServerTypes.AUTH_INVALID:
+                            onAuthInvalid(getJackson(true).readValue(message, AuthInvalidMessage.class));
+                            break;
+                        case ServerTypes.AUTH_OK:
+                            onAuthOk();
+                            break;
+                        case ServerTypes.RESULT:
+                            onResult(getJackson(true).readValue(message, ResultMessage.class));
+                            break;
+                        case ServerTypes.EVENT:
+                            onSubscriptionMessage(getJackson(true).readValue(message, SubscriptionMessage.class));
+                            break;
+                        case ServerTypes.PONG:
+                            onPong(getJackson(true).readValue(message, ServerMessage.class));
+                            break;
+                    }
+                } catch(Exception ex) {
+                    System.err.println("onMessage:" + ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onClose(int code, String reason, boolean remote) {
+                System.out.println("Socket_Closed: " + code + " - " + reason + " - " + remote);
+                onConnectionClose(code);
+                this.close();
+            }
+
+            @Override
+            public void onError(Exception ex) {
+                System.out.println("Socket_Error: " + ex.getMessage());
+                ex.fillInStackTrace();
+            }
+        };
     }
 
     public void send(Client.ClientMessage message) {
