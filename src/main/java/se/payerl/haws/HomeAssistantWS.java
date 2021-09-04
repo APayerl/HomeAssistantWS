@@ -56,6 +56,7 @@ public abstract class HomeAssistantWS {
             @Override
             public void onClose(int code, String reason, boolean remote) {
                 System.out.println("Socket_Closed: " + code + " - " + reason + " - " + remote);
+                onConnectionClose(code);
                 this.close();
             }
 
@@ -124,6 +125,10 @@ public abstract class HomeAssistantWS {
 
     public void onPong(ServerMessage message) {
 
+    }
+
+    public void onConnectionClose(int code) {
+        
     }
 
     public void send(Client.ClientMessage message) {
