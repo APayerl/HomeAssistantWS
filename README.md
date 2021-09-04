@@ -16,6 +16,6 @@ repositories {
 To use latest release:
 ```
 dependencies {
-    implementation 'se.payerl:HomeAssistantWS:2021.9.4'
+    implementation 'se.payerl:HomeAssistantWS:2021.9.2'
 }
 ```
