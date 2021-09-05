@@ -22,7 +22,7 @@ jar {
 
 repositories {
     // Use JCenter for resolving dependencies.
-    jcenter()
+    mavenCentral()
     maven { url 'https://www.jitpack.io' }
 }
 

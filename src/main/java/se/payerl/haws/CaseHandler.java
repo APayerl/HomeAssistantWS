@@ -1,8 +1,16 @@
 package se.payerl.haws;
 
+/**
+ * Class to handle case changes
+ */
 public final class CaseHandler {
     private CaseHandler(){}
 
+    /**
+     * Change input string from camel case to snake case
+     * @param original String to convert to snake case from camel case
+     * @return Formatted camel case string as a snake case
+     */
     public static String camelCaseTo_snake_case(String original) {
         String modified = "";
         int lastModified = 0;
@@ -19,6 +27,11 @@ public final class CaseHandler {
         return modified.toLowerCase();
     }
 
+    /**
+     * Change input string from snake case to camel case
+     * @param original String to convert to camel case from snake case
+     * @return Formatted snake case string as a camel case
+     */
     public static String snake_case_ToCamelCase(String original) {
         String modified = "";
         int lastModified = 0;
