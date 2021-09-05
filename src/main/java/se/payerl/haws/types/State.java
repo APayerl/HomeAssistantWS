@@ -1,5 +1,8 @@
 package se.payerl.haws.types;
 
+/**
+ * Used to represent a state associated with a entity
+ */
 public class State {
     private String entityId;
     private String state;

@@ -1,5 +1,8 @@
 package se.payerl.haws.types;
 
+/**
+ * Event data class to represent entityid and new and old state
+ */
 public class EventData {
     private String entityId;
     private State oldState;

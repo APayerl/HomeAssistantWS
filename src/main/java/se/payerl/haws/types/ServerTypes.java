@@ -1,5 +1,8 @@
 package se.payerl.haws.types;
 
+/**
+ * Different server message types.
+ */
 public abstract class ServerTypes {
     public static final String AUTH_REQUIRED = "auth_required";
     public static final String AUTH_INVALID = "auth_invalid";

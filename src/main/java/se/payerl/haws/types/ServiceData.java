@@ -8,6 +8,9 @@ import se.payerl.haws.CaseHandler;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Represents service data
+ */
 public class ServiceData {
     @JsonIgnore
     private Map<String, Object> attr = new TreeMap<>();

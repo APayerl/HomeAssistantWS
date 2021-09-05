@@ -1,5 +1,8 @@
 package se.payerl.haws.types;
 
+/**
+ * Used for units
+ */
 public class UnitSystem {
     private String length;
     private String mass;

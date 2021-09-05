@@ -1,5 +1,8 @@
 package se.payerl.haws.types;
 
+/**
+ * Context class.
+ */
 public class Context {
     private String id;
     private String parentId;
